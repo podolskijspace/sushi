@@ -1,0 +1,37 @@
+.popup-close {
+  $self: &;
+
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  background: #fff;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: rotate(45deg);
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: #FF7A00;
+  cursor: pointer;
+  transition: color .3s, background-color .3s;
+
+  @include hover {
+    color: #fff;
+    background: #FF7A00;
+  }
+
+  &--orange {
+    background: #FFD872;
+    color: #fff;
+
+    @include hover {
+      background: #FF7A00;
+    }
+  }
+}

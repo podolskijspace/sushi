@@ -1,0 +1,65 @@
+{% if aboutTabsList %}
+{% else %}
+  {% set aboutTabsList = [
+      {
+        text: 'О компании',
+        tabNumber: '0',
+        active: true,
+      },
+      {
+        text: 'Акции',
+        tabNumber: '1',
+      },
+    ] %}
+{% endif %}
+
+{% if aboutList %}
+{% else %}
+  {% set aboutList = [
+      {
+        title: 'Хорошие люди',
+        text: 'Причта доставки "Хорошие Люди" звучит так..."Попробовав однажды, 
+        ты не сможешь больше отказать себе в доставке вкусностей ещё раз". 
+        Здесь будет информация о вашем заведении, вы сможете ее редактировать 
+        и добавлять сюда все что вам будет необходимо.',
+        tabNumber: '0',
+        active: true,
+      },
+      {
+        title: 'Акции',
+        text: 'Причта доставки "Хорошие Люди" звучит так..."Попробовав однажды, 
+        ты не сможешь больше отказать себе в доставке вкусностей ещё раз". 
+        Здесь будет информация о вашем заведении, вы сможете ее редактировать 
+        и добавлять сюда все что вам будет необходимо.',
+        tabNumber: '1',
+      },
+    ] %}
+{% endif %}
+
+<div class="about">
+  <div class="container">
+    <ul class="about__tabs-list">
+      {% for item in aboutTabsList %}
+        <li class="about__tabs-item {% if item.active %}active{% endif %}" data-tabclass="js-about-tabs" data-tabnumber="{{item.tabNumber}}">
+          <button class="about__tabs-button">
+            {{item.text}}
+          </button>
+        </li>
+      {% endfor %}
+    </ul>
+    <ul class="about__list js-about-tabs">
+      {% for item in aboutList %}
+        <li class="about__item {% if item.active %}active{% endif %}" data-tabnumber="{{item.tabNumber}}">
+          <div class="about__tab">
+            <div class="about__title">
+              {{item.title}}
+            </div>
+            <div class="about__text">
+              {{item.text}}
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

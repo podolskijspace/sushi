@@ -1,0 +1,121 @@
+{% if checkboxList %}
+{% else %}
+  {% set checkboxList = [
+      {
+        name: 'payMethod',
+        text: 'Наличными курьеру',
+      },
+      {
+        name: 'payMethod',
+        text: 'Картой курьеру',
+      },
+      {
+        name: 'payMethod',
+        text: 'Картой на сайте',
+      },
+    ] %}
+{% endif %}
+
+{% if inputList %}
+{% else %}
+  {% set inputList = [
+      {
+        name: 'card',
+        placeholder: 'Номер карты',
+        mod: 'popup-delivery__input-input input--left',
+        itemMod: 'long'
+      },
+      {
+        name: 'date',
+        placeholder: 'Срок действия',
+        mod: 'popup-delivery__input-input',
+      },  
+      {
+        name: 'cvc',
+        placeholder: 'CVC',
+        mod: 'popup-delivery__input-input',
+        itemMod: 'short'
+      },
+    ] %}
+{% endif %}
+
+<div class="popup popup-delivery js-popup js-popup-delivery">
+  <div class="popup__wrapper popup-delivery__wrapper">
+    <div class="popup-delivery__title">
+      Заказ на доставку
+    </div>
+    <div class="popup-delivery__input-wrapper">
+      {% include "./input.twig" with {
+        placeholder: 'Ваше имя',
+        name: 'name',
+        inputMod: 'popup-delivery__input-name input--left',
+      } %}
+    </div>
+    <div class="popup-delivery__text">
+      Время доставки
+    </div>
+    <div class="popup-delivery__input-wrapper">
+      {% include "./input.twig" with {
+        placeholder: 'В ближайшее время',
+        name: 'time',
+        inputMod: 'popup-delivery__input-time input--left',
+      } %}
+    </div>
+    {% include "./input.twig" with {
+      placeholder: 'В ближайшее время',
+      name: 'time',
+    } %}
+    <div class="popup-delivery__title">
+      Способы оплаты:
+    </div>
+    <div class="popup-delivery__layover">
+      У нас есть возможность оплатить картой на сайте
+      {% include "./svg-temp.twig" with {
+        iconName: 'popup-delivery-hand',
+        modSvg: 'popup-delivery__icon'
+      } %}
+    </div>
+
+    <ul class="popup-delivery__check-list">
+      {% for item in checkboxList %}
+        <li class="popup-delivery__check-item">
+          {% include "./checkbox.twig" with {
+            checkboxMod: 'popup-delivery__check-checkbox',
+            name: item.name,
+            text: item.text,
+            radio: true,
+          } %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <ul class="popup-delivery__input-list">
+      {% for item in inputList %}
+        <li class="popup-delivery__input-item{% if item.itemMod %} popup-delivery__input-item--{{item.itemMod}}{% endif %}">
+          {% include "./input.twig" with {
+            placeholder: item.placeholder,
+            inputMod: item.mod,
+            name: item.name,
+          } %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% include "./checkbox.twig" with {
+      checkboxMod: 'popup-delivery__checkbox checkbox--orange',
+      name: 'personal',
+      text: 'Согласен на обработку персональных данных'
+    } %}
+
+    <div class="popup-delivery__bottom">
+      {% include "./btn.twig" with {
+        text: 'Назад в корзину',
+        btnMod: 'popup-delivery__btn popup-delivery__btn--transparent btn--transparent js-popup-btn-cart js-close',
+      } %}
+      {% include "./btn.twig" with {
+        text: 'Оформить заказ',
+        btnMod: 'popup-delivery__btn js-popup-btn-address js-close',
+      } %}
+    </div>
+  </div>
+</div>

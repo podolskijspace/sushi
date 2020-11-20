@@ -1,0 +1,73 @@
+.checkbox {
+  $self: &;
+  display: block;
+  display: flex;
+
+  &__wrapper {
+    margin-right: 0.9rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.1rem;
+    height: 2.1rem;
+    color: #fff;
+    background: transparent;
+    border: 1px solid #6EBB09;
+    border-radius: 6px;
+    transition: border-color .3s, background-color .3s;
+
+    @include fromDesktop {
+      #{$self}:hover & {
+        border-color: #80DC07;
+      }
+    }
+
+    #{$self}__input:checked ~ & {
+      border-color: #80DC07;
+      
+      #{$self}__icon {
+        opacity: 1;
+      }
+    }
+
+    #{$self}--orange & {
+      border-color: #FFB800;
+    }
+
+    @include fromDesktop {
+      #{$self}--orange:hover & {
+        border-color: #FF7A00;
+      }
+    }
+
+    #{$self}--orange #{$self}__input:checked ~ & {
+      border-color: #FF7A00;
+    }
+
+  }
+
+  &__input {
+    display: none;
+  }
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.1rem;
+    opacity: 0;    
+    color: #80DC07;
+    transition: opacity .3s;
+
+    #{$self}--orange & {
+      color: #FF7A00
+    }
+  }
+
+  &__text {
+    display: block;
+    font-size: 1rem;
+    line-height: 1.2rem;
+    text-align: left;
+    color: #3A3A3A;
+  }
+}

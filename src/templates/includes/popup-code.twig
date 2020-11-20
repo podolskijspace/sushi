@@ -1,0 +1,20 @@
+<div class="popup popup-code js-popup js-popup-code">
+  <div class="popup__wrapper popup-code__wrapper">
+    {% include "./input.twig" with {
+      placeholder: '',
+      inputMod: 'popup-code__input',
+      name: 'code',
+      label: 'Введите код:',
+    } %}
+    {% include "./checkbox.twig" with {
+      checkboxMod: 'popup-code__checkbox',
+      name: 'bonuses',
+      text: 'Сообщать о бонусах, акциях и новых 
+      продуктах',
+    } %}
+    {% include "./btn.twig" with {
+      text: 'Отправить',
+      btnMod: 'popup-code__btn js-close',
+    } %}
+  </div>
+</div>

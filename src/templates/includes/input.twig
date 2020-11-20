@@ -1,0 +1,21 @@
+<label for="" class="input js-input{% if value %} active{% endif %}{% if textarea %} input--textarea{% endif %} {{inputMod}}">
+  {% if label %}
+    <span class="input__label">
+      {{label}}
+    </span>
+  {% endif %}
+  {% if textarea %}
+    <textarea name="{{name|default("reg")}}" class="input__input input__input--textarea{% if phoneMask %} js-phone-mask{% endif %}" {% if value %}value="{{value}}"{% endif %} {% if required %}required{% endif %}>
+      
+    </textarea>
+  {% else %}
+    <input name="{{name|default("reg")}}" 
+    class="input__input{% if phoneMask %} js-phone-mask{% endif %}" 
+    {% if value %} value="{{value}}"{% endif %} 
+    {% if required %} required{% endif %}
+    type="{{type|default('text')}}">
+  {% endif %}
+  <div class="input__placeholder">
+    {{placeholder}}
+  </div>
+</label>

@@ -1,0 +1,313 @@
+{% if personalAboutList %}
+{% else %}
+  {% set personalAboutList = [
+      {
+        img: 'products-item-1.jpg',
+        name: 'Сливочный лосось',
+        text: 'Соус цезарь, лосось терияки, 
+        маслины, сыр творожный,  сыр 
+        моцарелла, соус терияки, кунжут',
+        cost: '1540 ₽',
+      },
+      {
+        img: 'products-item-1.jpg',
+        name: 'Салат Цезарь',
+        text: 'Соус цезарь, копченая курица, 
+        салат айсберг, помидоры черри, 
+        сухарики, сыр пармезан, 
+        сыр моцарелла',
+        cost: '1540 ₽',
+      },
+      {
+        img: 'products-item-1.jpg',
+        name: 'Сливочный лосось',
+        text: 'Соус цезарь, лосось терияки, 
+        маслины, сыр творожный,  сыр 
+        моцарелла, соус терияки, кунжут',
+        cost: '1540 ₽',
+      },
+    ] %}
+{% endif %}
+
+{% if personalFreeList %}
+{% else %}
+  {% set personalFreeList = [
+      {
+        img: 'free-item-1.png',
+        name: 'Coca-cola',
+        cost: '119 ₽',
+      },
+      {
+        img: 'free-item-2.png',
+        name: 'Шоколадный Маффин',
+        cost: '95 ₽',
+      },
+      {
+        img: 'free-item-3.png',
+        name: 'Картофельные шарики',
+        cost: '95 ₽',
+      },
+      {
+        img: 'free-item-1.png',
+        name: 'Coca-cola',
+        cost: '119 ₽',
+      },
+      {
+        img: 'free-item-2.png',
+        name: 'Шоколадный Маффин',
+        cost: '95 ₽',
+      },
+      {
+        img: 'free-item-3.png',
+        name: 'Картофельные шарики',
+        cost: '95 ₽',
+      },
+    ] %}
+{% endif %}
+
+{% if personalSauseList %}
+{% else %}
+  {% set personalSauseList = [
+      {
+        img: 'sause-item-1.png',
+        name: 'Сырный соус',
+        cost: '95 ₽',
+      },
+      {
+        img: 'sause-item-2.png',
+        name: 'Барбекю',
+        cost: '95 ₽',
+      },
+      {
+        img: 'sause-item-1.png',
+        name: 'Сырный соус',
+        cost: '95 ₽',
+      },
+      {
+        img: 'sause-item-2.png',
+        name: 'Барбекю',
+        cost: '95 ₽',
+      },
+      {
+        img: 'sause-item-1.png',
+        name: 'Сырный соус',
+        cost: '95 ₽',
+      },
+    ] %}
+{% endif %}
+
+
+{% if personalBoxList %}
+{% else %}
+  {% set personalBoxList = [
+      {
+        img: 'free-item-1.png',
+        name: 'Coca-cola',
+        cost: '0 ₽',
+      },
+      {
+        img: 'free-item-2.png',
+        name: 'Шоколадный Маффин',
+        cost: '0 ₽',
+      },
+      {
+        img: 'free-item-3.png',
+        name: 'Картофельные шарики',
+        cost: '0 ₽',
+      },
+      {
+        img: 'free-item-1.png',
+        name: 'Coca-cola',
+        cost: '0 ₽',
+      },
+      {
+        img: 'free-item-2.png',
+        name: 'Шоколадный Маффин',
+        cost: '0 ₽',
+      },
+      {
+        img: 'free-item-3.png',
+        name: 'Картофельные шарики',
+        cost: '0 ₽',
+      },
+    ] %}
+{% endif %}
+
+
+<div class="popup popup-cart js-popup js-popup-cart">
+  <div class="popup__wrapper popup-cart__wrapper">
+    <div class="popup-cart__content">
+      <div class="popup-cart__title-main">
+        Корзина
+      </div>
+  
+      <div class="popup-cart__order-header">
+        <span class="popup-cart__order-text">
+          Заказ
+        </span>
+        <span class="popup-cart__order-text">
+          Сумма:
+        </span>
+      </div>
+      <ul class="popup-cart__order-list">
+        {% for item in personalAboutList %}
+          <li class="popup-cart__order-item">
+            <div class="popup-cart__order-wrapper">
+              <div class="popup-cart__order-img">
+                <img src="./assets/img/content/{{item.img}}" alt="">
+              </div>
+  
+              <div class="popup-cart__order-content">
+                <div class="popup-cart__order-name">
+                  {{item.name}}
+                </div>
+                <div class="popup-cart__order-text">
+                  {{item.text}}
+                </div>
+              </div>
+  
+              <div class="popup-cart__order-counter">
+                
+              </div>
+  
+              <div class="popup-cart__order-cost">
+                {{item.cost}}
+              </div>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="popup-cart__free">
+        <div class="popup-cart__free-layover">
+          Для бесплатной доставки добавьте
+          еще продуктов на <span class="js-popup-cart-free-cost">49</span> ₽ 
+          <img src="./assets/svg_icons/arrow-down-circle.svg" class="popup-cart__free-down " alt="">
+        </div>
+        <div class="popup-cart__free-slider js-popup-free-slider">
+          <ul class="popup-cart__free-list swiper-wrapper">
+            {% for item in personalFreeList %}
+              <li class="popup-cart__free-item swiper-slide">
+                <div class="popup-cart__free-card">
+                  <div class="popup-cart__free-img">
+                    <img src="./assets/img/content/{{item.img}}" alt="">
+                  </div>
+                  <div class="popup-cart__free-content">
+                    <div class="popup-cart__free-name">
+                      {{item.name}}
+                    </div>
+                    {% include "./btn.twig" with {
+                      text: item.cost,
+                      btnMod: 'popup-cart__free-btn btn--transparent js-popup-btn-login',
+                    } %}
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="popup-cart__sause">
+        <div class="popup__title">
+          Соусы к бортикам и закускам
+        </div>
+        <div class="popup-cart__sause-slider js-popup-sause-slider">
+          <ul class="popup-cart__sause-list swiper-wrapper">
+            {% for item in personalSauseList %}
+              <li class="popup-cart__sause-item swiper-slide">
+                <div class="popup-cart__sause-card">
+                  <div class="popup-cart__sause-img">
+                    <img src="./assets/img/content/{{item.img}}" alt="">
+                  </div>
+                  <div class="popup-cart__sause-name">
+                    {{item.name}}
+                  </div>
+                  {% include "./btn.twig" with {
+                    text: item.cost,
+                    btnMod: 'popup-cart__sause-btn btn--transparent js-popup-btn-login',
+                  } %}
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="popup-cart__free popup-cart__free--box">
+        <div class="popup-cart__free-box">
+          Купите еще на 212 ₽ чтобы получить подарок 
+        </div>
+        <div class="popup-cart__free-slider js-popup-free-slider">
+          <ul class="popup-cart__free-list swiper-wrapper">
+            {% for item in personalBoxList %}
+              <li class="popup-cart__free-item swiper-slide">
+                <div class="popup-cart__free-card">
+                  <div class="popup-cart__free-img">
+                    <img src="./assets/img/content/{{item.img}}" alt="">
+                  </div>
+                  <div class="popup-cart__free-content">
+                    <div class="popup-cart__free-name">
+                      {{item.name}}
+                    </div>
+                    {% include "./btn.twig" with {
+                      text: item.cost,
+                      btnMod: 'popup-cart__free-btn btn--transparent js-popup-btn-login',
+                    } %}
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="popup-cart__promo">
+        <div class="popup-cart__title">
+          Промокод:
+        </div>
+        <form class="popup-cart__promo-form">
+          {% include "./input.twig" with {
+            placeholder: '',
+            inputMod: 'popup-cart__promo-input',
+            name: 'promocode',
+          } %}
+          {% include "./btn.twig" with {
+            text: 'Применить',
+            btnMod: 'popup-cart__promo-btn',
+          } %}
+        </form>
+      </div>
+
+      <div class="popup-cart__bonus">
+        {% include "./checkbox.twig" with {
+          checkboxMod: 'popup-cart__bonus-checkbox',
+          name: 'bonus',
+        } %}
+        <div class="popup-cart__bonus-content">
+          <div class="popup-cart__bonus-title">
+            Использовать баллы
+          </div>
+          <div class="popup-cart__bonus-text">
+            На вашем бонусном счету: 255 баллов, 1 балл = 1 руб.   
+          </div>
+        </div>
+      </div>
+
+      <div class="popup-cart__bottom">
+        <div class="popup-cart__bottom-text">
+          Сумма заказа:
+          <span class="popup-cart__bottom-orange">
+            5400 ₽
+          </span>        
+        </div>
+        {% include "./btn.twig" with {
+          text: 'Оформить заказ',
+          btnMod: 'popup-cart__bottom-btn js-popup-btn-delivery js-close',
+        } %}
+      </div>
+    </div>
+    {% include "./popup-close.twig" with {
+      mod: 'popup-cart__close popup-close--orange'
+    } %}
+  </div>
+</div>

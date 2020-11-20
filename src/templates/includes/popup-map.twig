@@ -1,0 +1,22 @@
+<div class="popup popup-map js-popup js-popup-map">
+  <div class="popup__wrapper popup-map__wrapper">
+    <div class="popup-map__map" style="position:relative;overflow:hidden;">
+      <a href="https://yandex.ru/maps/11469/feodosia/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">
+        Феодосия
+      </a>
+      <a href="https://yandex.ru/maps/11469/feodosia/?ll=35.368857%2C45.048319&mode=usermaps&source=constructorLink&um=constructor%3A3c2bfb1ea8464a24c320732a9219a1800c1c310f99b103794c7cf86a3c7eeca4&utm_medium=mapframe&utm_source=maps&z=13" style="color:#eee;font-size:12px;position:absolute;top:14px;">
+        Карта Феодосии с улицами и номерами домов онлайн — Яндекс.Карты
+      </a>
+      <iframe src="https://yandex.ru/map-widget/v1/-/CCUARVBBdD" frameborder="1" allowfullscreen="true" style="position:relative;">
+      </iframe>
+    </div>
+    {% include "./popup-close.twig" with {
+      mod: 'popup-map__close'
+    } %}
+    <div class="popup-map__layover">
+      Акция “Доставка до 59 минут
+      или пицца в подарок” распространяется
+      только на данную зону доставки. 
+    </div>
+  </div>
+</div>

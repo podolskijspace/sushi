@@ -1,0 +1,83 @@
+{% if filterList %}
+{% else %}
+  {% set filterList = [
+      {
+        text: 'Роллы и суши',
+      },
+      {
+        text: 'Тёплые роллы',
+      },
+      {
+        text: 'Комбо и сеты',
+      },
+      {
+        text: 'Пицца',
+      },
+      {
+        text: 'Снеки и десерты',
+      },
+      {
+        text: 'Салаты и напитки',
+      },
+      {
+        text: 'Акции',
+      },
+      {
+        text: 'О нас',
+      },
+    ] %}
+{% endif %}
+
+{% if photoList %}
+{% else %}
+  {% set photoList = [
+      {
+        img: 'hero-slide-1.jpg',
+      },
+      {
+        img: 'hero-slide-1.jpg',
+      },
+    ] %}
+{% endif %}
+
+<div class="hero">
+  <div class="container">
+    <div class="hero__top">
+      <ul class="hero__filters">
+        {% for item in filterList %}
+          <li class="hero__filter">
+            <button class="hero__filter-text">
+              {{item.text}}
+            </button>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <button class="hero__watch">
+        Прямой эфир
+      </button>
+    </div>
+
+    <div class="hero__slider js-hero-slider">
+      <ul class="hero__slider-list swiper-wrapper">
+        {% for item in photoList %}
+          <li class="hero__slider-item swiper-slide">
+            <img src="./assets/img/content/{{item.img}}" alt="{{item.alt}}" class="hero__slider-img">
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="hero__slider-arrow hero__slider-arrow--prev">
+        {% include "../svg-temp.twig" with {
+          iconName: 'hero-prev',
+          modSvg: 'hero__slider-icon'
+        } %}
+      </div>
+      <div class="hero__slider-arrow hero__slider-arrow--next">
+        {% include "../svg-temp.twig" with {
+          iconName: 'hero-next',
+          modSvg: 'hero__slider-icon'
+        } %}
+      </div>
+    </div>
+  </div>
+</div>

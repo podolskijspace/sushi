@@ -1,0 +1,14 @@
+<label class="checkbox{% if onlyRead %} disabled{% endif %} {{checkboxMod}}">
+  <input {% if onlyRead %}disabled {% endif %} type="{% if radio %}radio{% else %}checkbox{% endif %}" name="{{name}}" class="checkbox__input"{% if checked %} checked{% endif %}>
+  <div class="checkbox__wrapper">
+    {% include "./svg-temp.twig" with {
+      iconName: 'checked',
+      modSvg: 'checkbox__icon'
+    } %}
+  </div>
+  {% if text %}
+    <span class="checkbox__text">
+      {{text}}
+    </span>
+  {% endif %}
+</label>

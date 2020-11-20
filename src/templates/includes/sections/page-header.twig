@@ -1,0 +1,56 @@
+<div class="page-header">
+  <div class="container page-header__container">
+    <a class="logo page-header__logo" href="./">
+      <img src="./assets/png_icons/logo-black.png" alt="logo-main">
+    </a>
+
+    <div class="page-header__time">
+      <span class="page-header__time-medium">
+        Время работы: 
+      </span>
+      <br>
+      с 10:00 до 22:00 
+    </div>
+
+    <div class="page-header__call">
+      <a href="tel:89782278108" class="page-header__call-number">
+        +7(978) 227-81-08
+      </a>
+      <div class="page-header__call-text">
+        Ждем вашего звонка!
+      </div>
+    </div>
+
+    <div class="page-hedaer__minutes">
+      <button class="page-header__minutes-btn js-popup-btn-map">
+        59 минут
+      </button>
+      <div class="page-header__minutes-text">
+        или пицца в подарок 
+        <span class="page-header__minutes-color">
+          *
+        </span>
+      </div>
+    </div>
+
+    <button class="page-header__cart js-popup-btn-cart">
+      {% include "../svg-temp.twig" with {
+        iconName: 'cart',
+        modSvg: 'page-header__cart-icon'
+      } %}
+      <div class="page-header__cart-label">
+        1450 	
+        &#8381;
+      </div>
+    </button>
+
+    {% include "../btn.twig" with {
+      text: 'Войти',
+      btnMod: 'page-header__btn js-popup-btn-login',
+    } %}
+    {% include "../btn.twig" with {
+      text: 'Личный кабинет',
+      btnMod: 'page-header__btn js-popup-btn-personal hidden',
+    } %}
+  </div>
+</div>

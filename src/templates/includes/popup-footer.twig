@@ -1,0 +1,21 @@
+<div class="popup popup-footer js-popup">
+  <div class="popup__wrapper popup-footer__wrapper">
+    <div class="popup-footer__left">
+      <span class="popup-footer__title">
+        Спасибо, ваша заявка принята. 
+      </span>
+      <span class="popup-footer__subtitle">
+        Наши специалисты свяжуться с вами в ближайшее время
+      </span>
+      {% include "./btn.twig" with {
+        text: 'Закрыть',
+        btnMod: 'popup-footer__btn js-close'
+      } %}
+    </div>
+    <div class="popup-footer__right">
+      {% include "./svg-temp.twig" with {
+        iconName: 'popup-good',
+      } %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="popup popup-night js-popup js-popup-night">
+  <div class="popup__wrapper popup-night__wrapper">
+    <div class="popup-night__img">
+      <img src="./assets/img/content/popup-night.jpg" alt="night">
+    </div>
+    <div class="popup-night__title">
+      Хорошие люди <br>
+      сейчас отдыхают
+    </div>
+    <div class="popup-night__text">
+      Мы работает с 10:00 до 22:00, вы можете <br>
+      оформить предзаказ на удобное для вас время 
+    </div>
+    {% include "btn.twig" with {
+      text: 'Оформить заказ',
+      btnMod: 'popup-night__btn js-close',
+    } %}
+  </div>
+</div>

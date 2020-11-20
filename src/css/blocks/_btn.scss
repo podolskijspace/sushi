@@ -1,0 +1,52 @@
+.btn {
+  $self: &;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 1.7rem;
+  width: auto;
+  min-height: 2.5rem;
+  background: linear-gradient(180deg, #69B902 0%, #95CA3E 100%), #8DCD31;
+  border: 1px solid transparent;
+  border-radius: 36px;
+  transition: border-color .3s, background-color .3s;
+
+  @include hover {
+    background: linear-gradient(180deg, #7EDD05 0%, #9BDC31 100%), #8DCD31;
+  }
+
+  &--transparent {
+    background: transparent;
+    border-color: #FFB800;
+
+    @include hover {
+      color: #FF7A00;
+      background: transparent;
+      border-color: #FF7A00;
+    }
+  }
+
+  &__text {
+    font-size: 1.2rem;
+    color: #fff;
+    transition: color .3s;
+
+    #{$self}:hover & {
+      @include fromDesktop {
+        
+      }
+    }
+
+    #{$self}--transparent & {
+      color: #FFB800;
+    }
+
+    #{$self}--transparent:hover & {
+      @include fromDesktop {
+      color: #FF7A00;
+      }
+    }
+  }
+}

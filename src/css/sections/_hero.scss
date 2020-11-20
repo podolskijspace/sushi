@@ -1,0 +1,100 @@
+.hero {
+  $self: &;
+  overflow: hidden;
+
+  &__top {
+    display: flex;
+    margin-bottom: 2.3rem;
+  }
+
+  &__filters {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  &__filter {
+    &-text {
+      font-size: 1.2rem;
+      line-height: 1.4rem;
+      color: #3A3A3A;
+      transition: color .3s;
+
+      @include hover {
+        color: #FF7A00;
+      }
+    }
+  }
+
+  &__watch {
+    position: relative;
+    margin-left: 7rem;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    color: #3A3A3A;
+    transition: color .3s;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: -1rem;
+      transform: translateY(-50%);
+      width: .6rem;
+      height: .6rem;
+      background: #FF0000;
+      border-radius: 50%;
+    }
+  }
+
+  &__slider {
+    position: relative;
+
+    .swiper-slide {
+      opacity: 0.4;
+      transition: opacity .3s;
+    }
+
+    .swiper-slide-active {
+      opacity: 1;
+    }
+
+    &-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 3.6rem;
+      height: 3.6rem;
+      border: 2px solid #E8E8E8;
+      color: #E8E8E8;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: color .3s, border-color .3s;
+
+      @include hover {
+        border: 2px solid #FF7A00;
+        color: #FF7A00;
+      }
+
+      &--prev {
+        left: 2rem;
+        padding-right: 0.2rem;
+      }
+
+      &--next {
+        right: 2rem;
+        padding-left: 0.2rem;
+      }
+    }
+
+    &-icon {
+      width: 1.1rem;
+      height: 2rem;
+    }
+  }
+}

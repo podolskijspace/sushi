@@ -1,0 +1,76 @@
+{% if socialList %}
+{% else %}
+  {% set socialList = [
+      {
+        title: 'Цезарь',
+        weight: '370 гр.',
+        cost: '359 ₽',
+        img: 'new-item-1.jpg'
+      },
+      {
+        title: 'Сливочный лосось',
+        weight: '370 гр.',
+        cost: '359 ₽',
+        img: 'new-item-2.jpg'
+      },
+      {
+        title: 'Цезарь',
+        weight: '370 гр.',
+        cost: '359 ₽',
+        img: 'new-item-3.jpg'
+      },
+      {
+        title: 'Цезарь',
+        weight: '370 гр.',
+        cost: '359 ₽',
+        img: 'new-item-1.jpg'
+      },
+      {
+        title: 'Сливочный лосось',
+        weight: '370 гр.',
+        cost: '359 ₽',
+        img: 'new-item-2.jpg'
+      },
+      {
+        title: 'Цезарь',
+        weight: '370 гр.',
+        cost: '359 ₽',
+        img: 'new-item-3.jpg'
+      },
+    ] %}
+{% endif %}
+
+<div class="new wrapper-product">
+  <div class="container">
+    {% include "../title.twig" with {
+      text: 'Новое и популярное',
+      titleMod: 'new__title'
+    } %}
+    <div class="new__slider js-new-slider">
+      <ul class="new__list swiper-wrapper">
+        {% for item in socialList %}
+          <li class="new__item swiper-slide">
+            <a class="new__slide add-to-cart">
+              <div class="new__slide-img">
+                <img src="./assets/img/content/{{item.img}}" alt="{{item.alt}}">
+              </div>
+
+              <div class="new__slide-content">
+                <div class="new__slide-title">
+                  {{item.title}}
+                </div>
+                <div class="new__slide-weight">
+                  {{item.weight}}
+                </div>
+                <button class="new__slide-cost">
+                  {{item.cost}}
+                </button>
+              </div>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+{% if footerList %}
+{% else %}
+  {% set footerList = [
+      {
+        text: 'Роллы (суши)',
+      },
+      {
+        text: 'Снеки (фри) и Десерты',
+      },
+      {
+        text: 'Горячие и запеченные роллы',
+      },
+      {
+        text: 'Напитки',
+      },
+      {
+        text: 'Сеты',
+      },
+      {
+        text: 'Акции',
+      },
+      {
+        text: 'Пицца',
+      },
+      {
+        text: 'Доставка',
+      },
+    ] %}
+{% endif %}
+
+{% if socialList %}
+{% else %}
+  {% set socialList = [
+      {
+        icon: 'insta',
+        href: 'https://instagram.com/sushifeodosia?igshid=xctoieca8lhq'
+      },
+      {
+        icon: 'fb',
+        href: 'https://vk.com/sushifeodosia'
+      },
+      {
+        icon: 'vk',
+        href: 'https://vk.com/sushifeodosia'
+      },
+    ] %}
+{% endif %}
+
+<div class="page-footer">
+  <div class="container page-footer__container">
+    <div class="page-footer__nav">
+      <ul class="page-footer__list">
+        {% for item in footerList %}
+          <li class="page-footer__item">
+            <a href="" class="page-footer__link">
+              {{item.text}}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="page-footer__center">
+      <a class="logo page-footer__logo" href="./">
+        <img src="./assets/png_icons/logo-white.png" alt="logo-add">
+      </a>
+      <div class="page-footer__address">
+        Хорошие Люди ИП Семакин А.В. ОГРНИП 317183200073524, 
+        Фактический адрес г. Феодосия, ул. Гарнаева д. 59.
+      </div>
+    </div>
+    <div class="page-footer__social">
+      <div class="page-footer__social-text">
+        Мы в соц. сетях:
+      </div>
+      <ul class="page-footer__social-list">
+        {% for item in socialList %}
+          <li class="page-footer__social-item">
+            <a href="{{item.href}}" class="page-footer__social-link">
+              {% include "../svg-temp.twig" with {
+                iconName: item.icon,
+                modSvg: 'page-footer__social-icon'
+              } %}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

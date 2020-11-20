@@ -1,0 +1,12 @@
+{% extends 'templates/base.twig' %}
+
+{% block title %}Суши - главная{% endblock %}
+{% block page %}
+  {% include "./templates/includes/sections/hero.twig" %}
+  {% include "./templates/includes/sections/new.twig" %}
+  {% include "./templates/includes/sections/products.twig" with {
+    title: 'Роллы и суши',
+  } %}
+  {% include "./templates/includes/sections/about.twig" %}
+  {% include "./templates/includes/sections/personal.twig" %}
+{% endblock %}

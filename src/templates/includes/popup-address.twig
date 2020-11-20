@@ -1,0 +1,78 @@
+{% if addressList %}
+{% else %}
+  {% set addressList = [
+      {
+        placeholder: 'Улица',
+        mod: 'popup-address__input popup-address__input--left',
+        name: 'street',
+        input: true,
+        modItem: 'long',
+      },
+      {
+        placeholder: 'Дом',
+        mod: 'popup-address__input',
+        name: 'house',
+        input: true,
+      },
+      {
+        placeholder: 'Квартира',
+        mod: 'popup-address__input',
+        name: 'flat',
+        input: true,
+      },
+      {
+        placeholder: 'Подъезд',
+        mod: 'popup-address__input',
+        name: 'hall',
+        input: true,
+      },
+      {
+        placeholder: 'Код двери',
+        mod: 'popup-address__input',
+        name: 'code',
+        input: true,
+      },
+      {
+        placeholder: 'Этаж',
+        mod: 'popup-address__input',
+        name: 'level',
+        input: true,
+      },
+    ] %}
+{% endif %}
+
+<div class="popup popup-address js-popup js-popup-address">
+  <div class="popup__wrapper popup-address__wrapper">
+    <div class="popup-address__title">
+      Куда доставить?
+    </div>
+    {% include "./checkbox.twig" with {
+      checkboxMod: 'popup-address__checkbox',
+      name: 'bonus',
+      text: 'Самовывоз',
+      name: item.name
+    } %}
+    <ul class="popup-address__list">
+      {% for item in addressList %}
+        <li class="popup-address__item{% if item.modItem %} popup-address__item--{{item.modItem}}{% endif %}">
+          {% if item.input %}
+            {% include "./input.twig" with {
+              placeholder: item.placeholder,
+              inputMod: item.mod,
+              name: item.name,
+            } %}
+          {% elseif textarea %}
+
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+    {% include "./btn.twig" with {
+      text: 'Подтвердить адрес',
+      btnMod: 'popup-address__btn js-close',
+    } %}
+    {% include "./popup-close.twig" with {
+      mod: 'popup-address__close popup-close--orange'
+    } %}
+  </div>
+</div>

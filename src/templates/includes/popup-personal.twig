@@ -1,0 +1,138 @@
+{% if personalAboutList %}
+{% else %}
+  {% set personalAboutList = [
+      {
+        key: 'Ваш номер:',
+        value: '+7(978)-000-00-00'
+      },
+      {
+        key: 'Количество баллов:',
+        value: '244 балла',
+        mod: 'color',
+      },
+      {
+        key: 'Начисляется баллов:',
+        value: '10% от суммы'
+      },
+    ] %}
+{% endif %}
+
+{% if personalList %}
+{% else %}
+  {% set personalList = [
+      {
+        date: '12.10.2020',
+        list: [
+          {
+            text: 'Пицца Цезарь',
+          },
+          {
+            text: 'Ролл Филадельфия',
+          },
+          {
+            text: 'Ролл Калифорния',
+          },
+        ],
+        cost: '1540 ₽ ',
+      },
+      {
+        date: '12.10.2020',
+        list: [
+          {
+            text: 'Пицца Цезарь',
+          },
+          {
+            text: 'Ролл Филадельфия',
+          },
+          {
+            text: 'Ролл Калифорния',
+          },
+        ],
+        cost: '1540 ₽ ',
+      },
+      {
+        date: '12.10.2020',
+        list: [
+          {
+            text: 'Пицца Цезарь',
+          },
+          {
+            text: 'Ролл Филадельфия',
+          },
+          {
+            text: 'Ролл Калифорния',
+          },
+        ],
+        cost: '1540 ₽ ',
+      },
+    ] %}
+{% endif %}
+
+
+<div class="popup popup-personal js-popup js-popup-personal">
+  <div class="popup__wrapper popup-personal__wrapper">
+    <div class="popup-personal__title">
+      Личный кабинет
+    </div>
+    <ul class="popup-personal__about-list">
+      {% for item in personalAboutList %}
+        <li class="popup-personal__about-item">
+          <div class="popup-personal__about-text">
+            <span class="popup-personal__abouy-key">
+              {{item.key}}
+            </span>
+            <span class="popup-personal__about-value{% if item.mod %} popup-personal__about-value--{{item.mod}}{% endif %}">
+              {{item.value}}
+            </span>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+    <div class="popup-personal__title">
+      История заказов:
+    </div>
+    <div class="popup-personal__header">
+      <div class="popup-personal__header-name">
+        Заказ
+      </div>
+      <div class="popup-personal__header-cost">
+        Сумма:
+      </div>
+    </div>  
+    <ul class="popup-personal__list">
+      {% for item in personalList %}
+        <li class="popup-personal__item">
+          <div class="popup-personal__line">
+            <div class="popup-personal__date">
+              {{item.date}}
+            </div>
+          </div>
+          <div class="popup-personal__line">
+            <div class="popup-personal__name">
+              <ul>
+                {% for item in item.list %}
+                  <li>
+                    <div>
+                      {{item.text}}
+                    </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+            <div class="popup-personal__cost">
+              {{item.cost}}
+            </div>
+            {% include "./btn.twig" with {
+              text: 'Повторить заказ',
+              btnMod: 'popup-personal__btn js-close',
+            } %}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+    {% include "./popup-close.twig" with {
+      mod: 'popup-personal__close popup-close--orange'
+    } %}
+  </div>
+</div>

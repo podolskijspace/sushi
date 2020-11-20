@@ -1,0 +1,14 @@
+<div class="popup popup-login js-popup js-popup-login">
+  <div class="popup__wrapper popup-login__wrapper">
+    {% include "./input.twig" with {
+      placeholder: '+7(978)-000-00-00',
+      inputMod: 'popup-login__input',
+      name: 'phoneNumber',
+      label: 'Номер телефона:',
+    } %}
+    {% include "./btn.twig" with {
+      text: 'Выслать код',
+      btnMod: 'popup-login__btn js-close js-popup-btn-code',
+    } %}
+  </div>
+</div>
